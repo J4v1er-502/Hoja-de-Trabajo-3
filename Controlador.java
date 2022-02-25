@@ -31,7 +31,7 @@ public class Controlador{
 
     // Imprime un mensaje en consola
     public void print(String mensaje){
-
+        System.out.println(mensaje);
     }
 
     // Imprime un array en pantalla
