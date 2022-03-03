@@ -2,25 +2,41 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Numeros {
-    private File Archivo = new File("datos.txr");
-    
+
+    Random rand = new Random();
+    private File Archivo = new File("datos.txt");
+
+    public String crearNumero(){
+
+        String ContenidoArchivo = " ";
+       
+        
+        int cantidad = rand.nextInt(3000 - 10) + 10;
+        for (int i = 0; i < cantidad; i++) {
+            ContenidoArchivo += String.valueOf(rand.nextInt()) + " ";
+        }
+        return ContenidoArchivo;
+    }
+
+
     
 
     public void guardarArchivo(String contenido) throws Exception{
-        String fileContent = contenido;
+        String ContenidoArchivo = contenido;
         System.out.println(Archivo.toString());
         FileWriter myWriter = new FileWriter(Archivo, false);
-        myWriter.write(fileContent);
+        myWriter.write(ContenidoArchivo);
         myWriter.close();
 	
     }
     
     
     public int[] leerArchivo() throws FileNotFoundException{
-        Scanner myReader = new Scanner(Archivo);
+        Scanner myReader = new Scanner("datos.txt");
         int [] arr = null;
         while (myReader.hasNextLine()) {
             String data = myReader.nextLine();
