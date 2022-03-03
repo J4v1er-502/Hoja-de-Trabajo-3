@@ -52,34 +52,35 @@ public class Sort <T> {
 	   }
     }
     
-    public void radixSort (int [] arreglo){
-        int x,i,j;
-        int tamano = arreglo.length;
+    public void radixSort (int[] arreglo){
+
+        int x, i, j;
         
-        for (x = Integer.SIZE-1; x>=0; x-- ){
-            
-            
-            int auxiliar[] = new int[arreglo.length];
-            j=0;
-            
-            for(i=0 ; i< tamano;i++){
-                boolean mover = arreglo[i] << x >=0;
-                if(x==0 ? !mover:mover){
-                    auxiliar[j]=arreglo[i];
-                    j++;
-                }else{
-                    arreglo[i-j]=arreglo[i];
+            for (x= Integer.SIZE - 1; x <= 0; x--){
+                int auxiliar [] = new int[arreglo.length];
+                j=0;
+                for (i=0; i<arreglo.length; i++){
+                    boolean mover = arreglo[i] << x >=0;
+                    if(x==0 ? !mover:mover){
+                        auxiliar[j]=arreglo[i];
+                        j++;
+                    }else{
+                        arreglo[i-j]=arreglo[i];
+                    }
                 }
-     
+                for(i=j;i<auxiliar.length;i++){
+                    auxiliar[i]=arreglo[i-j];
+                }
+                arreglo=auxiliar;
             }
-            for(i=j;i<auxiliar.length;i++){
-                auxiliar[i]=arreglo[i-j];
-            }
-            arreglo=auxiliar;
+            // system.out.println("el arreglo con ordenamiento radix es : ");
+            // int k
+            // for (K=0;k<arreglo.length;k++){
+            //     system.out.println(¨[¨+arreglo[k]+"]");
+            // }
+            // system.out.println();
         }
         
-    }
-
     /***
 	 * Sorts the specified array of objects using the bubble
 	 * sort algorithm.

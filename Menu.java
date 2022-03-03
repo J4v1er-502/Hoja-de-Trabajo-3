@@ -1,3 +1,4 @@
+import java.net.URISyntaxException;
 import java.util.Scanner;
 
 
@@ -20,7 +21,12 @@ public class Menu {
             ex.printStackTrace();
             System.out.println("Error al guardar el archivo");
         }
-        
+        try {
+            numeros.generarRuta();
+        } catch (URISyntaxException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         try {
             a = numeros.leerArchivo();
     
