@@ -13,7 +13,10 @@ import java.io.FileWriter;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
-
+/**
+ *
+ * @author Angel
+ */
 public class Archivo {
     private File archivoFisico = new File("numeros.txr");
     

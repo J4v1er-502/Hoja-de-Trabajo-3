@@ -27,8 +27,7 @@ public class Sort <T> {
 	/**
 	 * Constructor of Sort Class, a Icomparator object is necessary to create 
 	 * a object of this class
-	 * @param _Compare a class that implements IComparator interface necessary
-	 * to know how compare the elements of generic arrays. 
+     * @param ic 
 	 */
 	public Sort(IComparator _Compare) {
 		myCompare = _Compare;
@@ -72,11 +71,11 @@ public class Sort <T> {
      *
      * @param arreglo
      */
-    public void radixSort (int[] arreglo){
+    public void radixSort(int[] arreglo){
 
         int x, i, j;
-        
-        for (x= Integer.SIZE - 1; x <= 0; x--){
+
+        for (x= Integer.SIZE - 1; x >= 0; x--){
             int auxiliar [] = new int[arreglo.length];
             j=0;
             for (i=0; i<arreglo.length; i++){
@@ -93,7 +92,13 @@ public class Sort <T> {
             }
             arreglo=auxiliar;
         }
+        System.out.println("///////////////");
+        int k;
+        for (k=0;k<arreglo.length;k++){
+            System.out.println(arreglo[k]);
+        }
     }
+        
 
     /***
 	 * Sorts the specified array of objects using the bubble
@@ -101,16 +106,16 @@ public class Sort <T> {
 	 * @param arreglo List of elements need to be sorted
 	 */
     public void BubbleSort(int[] arreglo) {
-		for (int i = 0; i < arreglo.length - 1; i++) {					
-			for (int j = i + 1; j < arreglo.length; j++) {				
-				if (myCompare.Compare(arreglo[i], arreglo[j]) > 0) {    
-					int temp = arreglo[i];								
-					arreglo[i] = arreglo[j];							
-					arreglo[j] = temp;									
-				}
-			}
-		}
-	}
+        for (int i = 0; i < arreglo.length - 1; i++) {					
+            for (int j = i + 1; j < arreglo.length; j++) {				
+                if (myCompare.Compare(arreglo[i], arreglo[j]) > 0) {    
+                    int temp = arreglo[i];								
+                    arreglo[i] = arreglo[j];							
+                    arreglo[j] = temp;									
+                }
+            }
+        }
+    }
     
     /**
      *
@@ -133,7 +138,6 @@ public class Sort <T> {
                 index--;
             }
         }
-        return;
     }
     
     void merge(int arr[], int l, int m, int r)
@@ -199,7 +203,5 @@ public class Sort <T> {
             // Merge the sorted halves
             merge(arr, l, m, r);
         }
-    }
-    
-    
+    }   
 }

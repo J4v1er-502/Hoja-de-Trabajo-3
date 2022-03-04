@@ -17,6 +17,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *
+ * @author Angel
+ */
 public class Main {
     
     /**
@@ -133,12 +137,12 @@ public class Main {
 
                 System.out.println("\nUtilizando el algoritmo Radix sort");
                 sort.radixSort(a);
-                for (int i=0; i< a.length; i++) {
-                    System.out.println(a[i]);
-                }
+//                for (int i=0; i< a.length; i++) {
+//                    System.out.println(a[i]);
+//                }
 
                 try {
-                    Thread.sleep(2050);
+                    Thread.sleep(200);
 
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
