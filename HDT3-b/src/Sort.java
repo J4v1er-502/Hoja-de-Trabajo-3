@@ -39,7 +39,7 @@ public class Sort <T> {
      * @param inf
      * @param sup
      */
-    public void quickSort(int[] myArray, int inf, int sup) {
+    public int[] quickSort(int[] myArray, int inf, int sup) {
 	   int i = inf - 1;
 	   int j = sup;
 	   boolean flag = true;
@@ -47,7 +47,7 @@ public class Sort <T> {
 	   
 	   
 	   if (inf >= sup) {
-		   return;
+		   return null;
 	   }
 	   
 	   int elem_div = myArray[sup];
@@ -65,13 +65,21 @@ public class Sort <T> {
 			   flag = false;
 		   }
 	   }
+	   
+	   temp = myArray[i];
+       myArray[i] = myArray[sup];
+       myArray[sup] = temp;
+       quickSort(myArray, inf, i - 1);
+       quickSort(myArray, i + 1, sup);
+	   
+	   return myArray;
     }
     
     /**
      *
      * @param arreglo
      */
-    public void radixSort(int[] arreglo){
+    public int[] radixSort(int[] arreglo){
 
         int x, i, j;
 
@@ -97,6 +105,8 @@ public class Sort <T> {
         for (k=0;k<arreglo.length;k++){
             System.out.println(arreglo[k]);
         }
+        
+        return arreglo;
     }
         
 
@@ -105,7 +115,7 @@ public class Sort <T> {
 	 * sort algorithm.
 	 * @param arreglo List of elements need to be sorted
 	 */
-    public void BubbleSort(int[] arreglo) {
+    public int[] BubbleSort(int[] arreglo) {
         for (int i = 0; i < arreglo.length - 1; i++) {					
             for (int j = i + 1; j < arreglo.length; j++) {				
                 if (myCompare.Compare(arreglo[i], arreglo[j]) > 0) {    
@@ -115,6 +125,7 @@ public class Sort <T> {
                 }
             }
         }
+        return arreglo;
     }
     
     /**
@@ -122,7 +133,7 @@ public class Sort <T> {
      * @param arr
      * @param n
      */
-    public void gnomeSort(int arr[], int n){
+    public int[] gnomeSort(int arr[], int n){
         int index = 0;
  
         while (index < n) {
@@ -138,9 +149,10 @@ public class Sort <T> {
                 index--;
             }
         }
+        return arr;
     }
     
-    void merge(int arr[], int l, int m, int r)
+    int[] merge(int arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
         int n1 = m - l + 1;
@@ -188,9 +200,10 @@ public class Sort <T> {
             j++;
             k++;
         }
+        return arr;
     }
     
-    void sort(int arr[], int l, int r)
+    int[] sort(int arr[], int l, int r)
     {
         if (l < r) {
             // Find the middle point
@@ -202,6 +215,7 @@ public class Sort <T> {
   
             // Merge the sorted halves
             merge(arr, l, m, r);
-        }
-    }   
+        }   
+        return arr;
+    }
 }

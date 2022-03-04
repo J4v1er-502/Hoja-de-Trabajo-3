@@ -46,9 +46,10 @@ public class Main {
         
         boolean Salir = false;
         
-        int qty = random.nextInt(3000 - 10) + 10; // Genera la cantidad de numeros a escribir en el archivo
+        //int qty = random.nextInt(3000 - 10) + 10; // Genera la cantidad de numeros a escribir en el archivo
+        int qty = 3000;
         for (int i = 0; i < qty; i++) {
-            fileContent += String.valueOf(random.nextInt()) + " ";
+            fileContent += String.valueOf(random.nextInt(3000 - 0) + 0) + " ";
         }
         try {
             archivo.guardarArchivo(fileContent); // guardamos el arvhivo en la raiz
@@ -142,7 +143,7 @@ public class Main {
 //                }
 
                 try {
-                    Thread.sleep(200);
+                    Thread.sleep(2050);
 
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
