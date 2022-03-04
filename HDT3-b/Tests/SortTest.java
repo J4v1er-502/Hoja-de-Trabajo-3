@@ -4,16 +4,27 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * @author mario
+ *
+ */
 public class SortTest {
 
+	
 	Sort s = new Sort(new ComparateAsc());
 	
+	/**
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		
 		System.out.println("Iniciando test...");
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
@@ -22,9 +33,6 @@ public class SortTest {
 	public void testQuickSort() {
 		int[] input = {7, 12, 45, 4};
 		int [] output = s.quickSort(input, 0, 3);
-		for (int i=0; i< output.length; i++) {
-            System.out.println(output[i]);
-        }
 		assertEquals(12, output[2]);
 	}
 
